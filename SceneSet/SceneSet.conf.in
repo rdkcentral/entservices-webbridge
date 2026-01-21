@@ -1,0 +1,11 @@
+precondition = ["Platform"]
+callsign = "org.rdk.SceneSet"
+autostart = "@PLUGIN_SCENE_SET_AUTOSTART@"
+startuporder = "@PLUGIN_SCENE_SET_STARTUPORDER@"
+
+configuration = JSON()
+
+rootobject = JSON()
+rootobject.add("mode", "@PLUGIN_SCENE_SET_MODE@")
+configuration.add("root", rootobject)
+configuration.add("refAppName", "com.rdk.app.wpebrowser_2.38")

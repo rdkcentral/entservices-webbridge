@@ -1,0 +1,4 @@
+precondition = ["Platform"]
+callsign = "org.rdk.AppGateway"
+autostart = "@PLUGIN_APPGATEWAY_AUTOSTART@"
+startuporder = "@PLUGIN_APPGATEWAY_STARTUPORDER@"

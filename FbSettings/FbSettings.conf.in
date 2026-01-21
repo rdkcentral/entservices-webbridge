@@ -1,0 +1,5 @@
+autostart = "@PLUGIN_FBSETTINGS_AUTOSTART@"
+precondition = ["Platform"]
+callsign = "org.rdk.FbSettings"
+startuporder = "@PLUGIN_FBSETTINGS_STARTUPORDER@"
+

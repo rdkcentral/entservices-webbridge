@@ -1,0 +1,19 @@
+autostart = "@PLUGIN_PACKAGEMANAGER_AUTOSTART@"
+precondition = ["Platform"]
+callsign = "org.rdk.@PLUGIN_NAME@"
+
+configuration = JSON()
+
+root = JSON()
+root.add("mode", "@PLUGIN_PACKAGEMANAGER_MODE@")
+configuration.add("root", root)
+configuration.add("downloadDir", "/opt/CDL/")
+if boolean("@ADD_DAC_PARAMS@"):
+    configuration.add("dbpath","@PLUGIN_DAC_DB_PATH@")
+    configuration.add("appspath","@PLUGIN_DAC_APP_PATH@")
+    configuration.add("datapath","@PLUGIN_DAC_DATA_PATH@")
+    configuration.add("annotationsFile","@PLUGIN_DAC_ANTN_FILE@")
+    configuration.add("annotationsRegex","@PLUGIN_DAC_ANTN_REGEX@")
+    configuration.add("dacBundleFirmwareCompatibilityKey", "@PLUGIN_DAC_BUN_FIRM_COMP_KEY@")
+    configuration.add("dacBundlePlatformNameOverride", "@PLUGIN_DAC_BUN_PLATNAME_OVERRIDE@")
+    configuration.add("configUrl", "@PLUGIN_DAC_CONFIGURL@")

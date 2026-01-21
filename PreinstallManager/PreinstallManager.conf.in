@@ -1,0 +1,10 @@
+precondition = ["Platform"]
+callsign = "org.rdk.PreinstallManager"
+autostart = "false"
+
+configuration = JSON()
+
+rootobject = JSON()
+rootobject.add("mode", "@PLUGIN_PREINSTALL_MANAGER_MODE@")
+rootobject.add("locator", "lib@PLUGIN_IMPLEMENTATION@.so")
+configuration.add("root", rootobject)

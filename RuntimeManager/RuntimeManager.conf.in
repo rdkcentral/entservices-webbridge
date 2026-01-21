@@ -1,0 +1,12 @@
+precondition = ["Platform"]
+callsign = "org.rdk.RuntimeManager"
+autostart = "@PLUGIN_RUNTIME_MANAGER_AUTOSTART@"
+startuporder = "@PLUGIN_RUNTIME_MANAGER_STARTUPORDER@"
+
+configuration = JSON()
+
+rootobject = JSON()
+rootobject.add("mode", "@PLUGIN_RUNTIME_MANAGER_MODE@")
+rootobject.add("locator", "lib@PLUGIN_IMPLEMENTATION@.so")
+configuration.add("root", rootobject)
+configuration.add("runtimeAppPortal","@PLUGIN_RUNTIME_APP_PORTAL@")

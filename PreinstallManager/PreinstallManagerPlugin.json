@@ -1,0 +1,16 @@
+{
+  "$schema": "plugin.schema.json",
+  "info": {
+    "title": "PreinstallManager Plugin",
+    "callsign": "PreinstallManager",
+    "locator": "libThunderPreinstallManager.so",
+    "status": "development",
+    "description": [
+    ""
+    ],
+    "version": "1.0"
+  },
+  "interface": {
+    "$cppref": "{cppinterfacedir}/IPreinstallManager.h"
+  }
+}

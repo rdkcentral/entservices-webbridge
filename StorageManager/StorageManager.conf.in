@@ -1,0 +1,12 @@
+precondition = ["Platform"]
+callsign = "org.rdk.StorageManager"
+autostart = "@PLUGIN_STORAGE_MANAGER_AUTOSTART@"
+startuporder = "@PLUGIN_STORAGE_MANAGER_STARTUPORDER@"
+
+configuration = JSON()
+
+rootobject = JSON()
+rootobject.add("mode", "@PLUGIN_STORAGE_MANAGER_MODE@")
+rootobject.add("locator", "lib@PLUGIN_IMPLEMENTATION@.so")
+configuration.add("root", rootobject)
+configuration.add("path", "@PLUGIN_STORAGE_MANAGER_PATH@")

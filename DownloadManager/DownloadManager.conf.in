@@ -1,0 +1,13 @@
+autostart = "@PLUGIN_DOWNLOADMANAGER_AUTOSTART@"
+precondition = ["Platform"]
+callsign = "org.rdk.@PLUGIN_NAME@"
+startuporder = "@PLUGIN_DOWNLOADMANAGER_STARTUPORDER@"
+
+configuration = JSON()
+
+root = JSON()
+root.add("mode", "@PLUGIN_DOWNLOADMANAGER_MODE@")
+root.add("locator", "lib@PLUGIN_IMPLEMENTATION@.so")
+configuration.add("root", root)
+configuration.add("downloadDir", "@PLUGIN_DOWNLOADMANAGER_DOWNLOAD_DIR@")
+configuration.add("downloadId", "@PLUGIN_DOWNLOADMANAGER_DOWNLOAD_ID@")

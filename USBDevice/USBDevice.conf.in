@@ -1,0 +1,11 @@
+autostart = "@PLUGIN_USBDEVICE_AUTOSTART@"
+precondition = ["Platform"]
+callsign = "org.rdk.UsbDevice"
+startuporder = "@PLUGIN_USBDEVICE_STARTUPORDER@"
+
+configuration = JSON()
+rootobject = JSON()
+
+rootobject.add("mode", "@PLUGIN_USBDEVICE_MODE@")
+rootobject.add("locator", "lib@PLUGIN_IMPLEMENTATION@.so")
+configuration.add("root", rootobject)

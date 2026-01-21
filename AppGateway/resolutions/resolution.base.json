@@ -1,0 +1,270 @@
+{
+    "resolutions": {
+        "Localization.addAdditionalInfo": {
+            "alias": "org.rdk.FbSettings",
+            "useComRpc": true
+        },
+        "device.make": {
+            "alias": "org.rdk.FbSettings",
+            "useComRpc": true
+        },
+        "device.name": {
+            "alias": "org.rdk.FbSettings",
+            "useComRpc": true
+        },
+        "device.setName": {
+            "alias": "org.rdk.FbSettings",
+            "useComRpc": true,
+            "permissionGroup": "org.rdk.permission.group.enhanced"
+        },
+        "localization.countryCode": {
+            "alias": "org.rdk.FbSettings",
+            "useComRpc": true
+        },
+        "localization.setCountryCode": {
+            "alias": "org.rdk.FbSettings",
+            "useComRpc": true,
+            "permissionGroup": "org.rdk.permission.group.enhanced"
+        },
+        "localization.timeZone": {
+            "alias": "org.rdk.FbSettings",
+            "useComRpc": true
+        },
+        "localization.setTimeZone": {
+            "alias": "org.rdk.FbSettings",
+            "useComRpc": true,
+            "permissionGroup": "org.rdk.permission.group.enhanced"
+        },
+        "localization.language": {
+            "alias": "org.rdk.FbSettings",
+            "useComRpc": true
+        },
+        "localization.locale": {
+            "alias": "org.rdk.FbSettings",
+            "useComRpc": true
+        },
+        "localization.setLocale": {
+            "alias": "org.rdk.FbSettings",
+            "useComRpc": true,
+            "permissionGroup": "org.rdk.permission.group.enhanced"
+        },
+        "localization.preferredAudioLanguages": {
+            "alias": "org.rdk.FbSettings",
+            "useComRpc": true
+        },
+        "localization.setPreferredAudioLanguages": {
+            "alias": "org.rdk.FbSettings",
+            "useComRpc": true,
+            "permissionGroup": "org.rdk.permission.group.enhanced"
+        },
+        "voiceguidance.setEnabled": {
+            "alias": "org.rdk.FbSettings",
+            "useComRpc": true,
+            "permissionGroup": "org.rdk.permission.group.enhanced"
+        },
+        "voiceguidance.setSpeed": {
+            "alias": "org.rdk.FbSettings",
+            "useComRpc": true,
+            "permissionGroup": "org.rdk.permission.group.enhanced"
+        },
+        "accessibility.audioDescriptionSettings": {
+            "alias": "org.rdk.FbSettings",
+            "useComRpc": true
+        },
+        "accessibility.closedCaptions": {
+            "alias": "org.rdk.FbSettings",
+            "useComRpc": true
+        },
+        "accessibility.closedCaptionsSettings": {
+            "alias": "org.rdk.FbSettings",
+            "useComRpc": true
+        },
+        "audiodescriptions.enabled": {
+            "alias": "org.rdk.FbSettings",
+            "useComRpc": true
+        },
+        "audiodescriptions.setEnabled": {
+            "alias": "org.rdk.FbSettings",
+            "useComRpc": true,
+            "permissionGroup": "org.rdk.permission.group.enhanced"
+        },
+        "accessibility.highContrastUI": {
+            "alias": "org.rdk.FbSettings",
+            "useComRpc": true
+        },
+        "closedcaptions.enabled": {
+            "alias": "org.rdk.FbSettings",
+            "useComRpc": true
+        },
+        "closedcaptions.setEnabled": {
+            "alias": "org.rdk.FbSettings",
+            "useComRpc": true,
+            "permissionGroup": "org.rdk.permission.group.enhanced"
+        },
+        "closedcaptions.preferredLanguages": {
+            "alias": "org.rdk.FbSettings",
+            "useComRpc": true
+        },
+        "closedcaptions.setPreferredLanguages": {
+            "alias": "org.rdk.FbSettings",
+            "useComRpc": true,
+            "permissionGroup": "org.rdk.permission.group.enhanced"
+        },
+        "voiceguidance.navigationHints": {
+            "alias": "org.rdk.FbSettings",
+            "useComRpc": true
+        },
+        "voiceguidance.setNavigationHints": {
+            "alias": "org.rdk.FbSettings",
+            "useComRpc": true,
+            "permissionGroup": "org.rdk.permission.group.enhanced"
+        },
+        "voiceguidance.rate": {
+            "alias": "org.rdk.FbSettings",
+            "useComRpc": true
+        },
+        "voiceguidance.setRate": {
+            "alias": "org.rdk.FbSettings",
+            "useComRpc": true,
+            "permissionGroup": "org.rdk.permission.group.enhanced"
+        },
+        "voiceguidance.enabled": {
+            "alias": "org.rdk.FbSettings",
+            "useComRpc": true
+        },
+        "voiceguidance.speed": {
+            "alias": "org.rdk.FbSettings",
+            "useComRpc": true
+        },
+        "accessibility.voiceGuidanceSettings": {
+            "alias": "org.rdk.FbSettings",
+            "useComRpc": true
+        },
+        "accessibility.voiceGuidance": {
+            "alias": "org.rdk.FbSettings",
+            "useComRpc": true
+        },
+        "device.network": {
+            "alias": "org.rdk.FbSettings",
+            "useComRpc": true
+        },
+        "localization.onLanguageChanged": {
+            "alias": "org.rdk.FbSettings",
+            "event": "org.rdk.FbSettings.onPresentationLanguageChanged"
+        },
+        "localization.onLocaleChanged": {
+            "alias": "org.rdk.FbSettings",
+            "event": "org.rdk.FbSettings.onLocaleChanged"
+        },
+        "localization.onPreferredAudioLanguagesChanged": {
+            "alias": "org.rdk.FbSettings",
+            "event": "org.rdk.FbSettings.onPreferredAudioLanguagesChanged"
+        },
+        "accessibility.onAudioDescriptionSettingsChanged": {
+            "alias": "org.rdk.FbSettings",
+            "event": "org.rdk.FbSettings.onAudioDescriptionChanged"
+        },
+        "audiodescriptions.onEnabledChanged": {
+            "alias": "org.rdk.FbSettings",
+            "event": "org.rdk.FbSettings.onAudioDescriptionsChanged"
+        },
+        "accessibility.onHighContrastUIChanged": {
+            "alias": "org.rdk.FbSettings",
+            "event": "org.rdk.FbSettings.onHighContrastChanged"
+        },
+        "closedcaptions.onEnabledChanged": {
+            "alias": "org.rdk.FbSettings",
+            "event": "org.rdk.FbSettings.onCaptionsChanged"
+        },
+        "closedcaptions.onPreferredLanguagesChanged": {
+            "alias": "org.rdk.FbSettings",
+            "event": "org.rdk.FbSettings.onPreferredCaptionsLanguagesChanged"
+        },
+        "accessibility.onClosedCaptionsSettingsChanged": {
+            "alias": "org.rdk.FbSettings",
+            "event": "org.rdk.FbSettings.onCaptionsChanged"
+        },
+        "voiceguidance.onNavigationHintsChanged": {
+            "alias": "org.rdk.FbSettings",
+            "event": "org.rdk.FbSettings.onVoiceGuidanceHintsChanged"
+        },
+        "voiceguidance.onRateChanged": {
+            "alias": "org.rdk.FbSettings",
+            "event": "org.rdk.FbSettings.onVoiceGuidanceRateChanged"
+        },
+        "voiceguidance.onEnabledChanged": {
+            "alias": "org.rdk.FbSettings",
+            "event": "org.rdk.FbSettings.onVoiceGuidanceChanged"
+        },
+        "voiceguidance.onSpeedChanged": {
+            "alias": "org.rdk.FbSettings",
+            "event": "org.rdk.FbSettings.onVoiceGuidanceRateChanged"
+        },
+        "accessibility.onVoiceGuidanceSettingsChanged": {
+            "alias": "org.rdk.FbSettings",
+            "event": "org.rdk.FbSettings.onVoiceGuidanceChanged"
+        },
+        "device.onNetworkChanged": {
+            "alias": "org.rdk.FbSettings",
+            "event": "org.rdk.FbSettings.onInternetStatusChange"
+        },
+        "device.version": {
+            "alias": "org.rdk.FbSettings",
+            "useComRpc": true
+        },
+        "Localization.onCountryCodeChanged": {
+            "alias": "org.rdk.FbSettings",
+            "event": "org.rdk.FbSettings.onCountryCodeChanged"
+        },
+        "device.screenResolution": {
+            "alias": "org.rdk.FbSettings",
+            "useComRpc": true
+        },
+        "device.videoResolution": {
+            "alias": "org.rdk.FbSettings",
+            "useComRpc": true
+        },
+        "device.hdr": {
+            "alias": "org.rdk.FbSettings",
+            "useComRpc": true
+        },
+        "device.hdcp": {
+            "alias": "org.rdk.FbSettings",
+            "useComRpc": true
+        },
+        "device.audio": {
+            "alias": "org.rdk.FbSettings",
+            "useComRpc": true
+        },
+        "device.onhdrchanged": {
+            "alias": "org.rdk.FbSettings",
+            "event": "org.rdk.FbSettings.onDisplayConnectionChanged"
+        },
+        "device.onhdcpchanged": {
+            "alias": "org.rdk.FbSettings",
+            "event": "org.rdk.FbSettings.onDisplayConnectionChanged"
+        },
+        "device.onvideoresolutionchanged": {
+            "alias": "org.rdk.FbSettings",
+            "event": "org.rdk.FbSettings.onScreenResolutionChanged"
+        },
+        "device.onscreenresolutionchanged": {
+            "alias": "org.rdk.FbSettings",
+            "event": "org.rdk.FbSettings.resolutionChanged"
+        },
+        "device.onaudiochanged": {
+            "alias": "org.rdk.FbSettings",
+            "event": "org.rdk.FbSettings.audioFormatChanged"
+        },
+        "device.ondevicenamechanged": {
+            "alias": "org.rdk.FbSettings",
+            "event": "org.rdk.FbSettings.onFriendlyNameChanged"
+        },
+        "device.onnamechanged": {
+            "alias": "org.rdk.FbSettings",
+            "event": "org.rdk.FbSettings.onFriendlyNameChanged"
+        }
+    }
+}
+
+

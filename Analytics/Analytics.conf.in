@@ -1,0 +1,12 @@
+precondition = ["Platform"]
+callsign = "org.rdk.Analytics"
+autostart = "@PLUGIN_ANALYTICS_AUTOSTART@"
+startuporder = "@PLUGIN_ANALYTICS_STARTUPORDER@"
+
+configuration = JSON()
+
+configuration.add("eventsmap", "@PLUGIN_ANALYTICS_EVENTS_MAP@")
+configuration.add("loggername", "@PLUGIN_ANALYTICS_LOGGER_NAME@")
+configuration.add("loggerversion", "@PLUGIN_ANALYTICS_LOGGER_VERSION@")
+configuration.add("backendlib", "@PLUGIN_ANALYTICS_BACKEND_LIBRARY_NAME@")
+
