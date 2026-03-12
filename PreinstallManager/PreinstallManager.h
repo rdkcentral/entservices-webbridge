@@ -62,12 +62,10 @@ namespace WPEFramework
 
                 void Activated(RPC::IRemoteConnection *) override
                 {
-                    LOGINFO("PreinstallManager Notification Activated");
                 }
 
                 void Deactivated(RPC::IRemoteConnection *connection) override
                 {
-                    LOGINFO("PreinstallManager Notification Deactivated");
                     _parent.Deactivated(connection);
                 }
 
