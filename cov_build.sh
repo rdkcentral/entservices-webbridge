@@ -8,6 +8,16 @@ ls -la ${GITHUB_WORKSPACE}
 # Build entservices-infra
 echo "buliding entservices-infra"
 
+if [ ! -e "$GITHUB_WORKSPACE/../entservices-infra" ]; then
+    ln -s "$GITHUB_WORKSPACE" "$GITHUB_WORKSPACE/../entservices-infra" || true
+fi
+if [ ! -e "$GITHUB_WORKSPACE/../entservices-testframework" ]; then
+    ln -s "$GITHUB_WORKSPACE/entservices-testframework" "$GITHUB_WORKSPACE/../entservices-testframework" || true
+fi
+if [ ! -e "$GITHUB_WORKSPACE/../Thunder" ]; then
+    ln -s "$GITHUB_WORKSPACE/Thunder" "$GITHUB_WORKSPACE/../Thunder" || true
+fi
+
 cd ${GITHUB_WORKSPACE}
 cmake -G Ninja -S "$GITHUB_WORKSPACE" -B build/entservices-infra \
 -DUSE_THUNDER_R4=ON \

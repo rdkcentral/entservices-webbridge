@@ -156,4 +156,14 @@ echo "==========================================================================
 cd ../../
 cp -r /usr/include/gstreamer-1.0/gst /usr/include/glib-2.0/* /usr/lib/x86_64-linux-gnu/glib-2.0/include/* /usr/local/include/trower-base64/base64.h .
 
+if [ ! -e "$GITHUB_WORKSPACE/../entservices-infra" ]; then
+    ln -s "$GITHUB_WORKSPACE" "$GITHUB_WORKSPACE/../entservices-infra" || true
+fi
+if [ ! -e "$GITHUB_WORKSPACE/../entservices-testframework" ]; then
+    ln -s "$GITHUB_WORKSPACE/entservices-testframework" "$GITHUB_WORKSPACE/../entservices-testframework" || true
+fi
+if [ ! -e "$GITHUB_WORKSPACE/../Thunder" ]; then
+    ln -s "$GITHUB_WORKSPACE/Thunder" "$GITHUB_WORKSPACE/../Thunder" || true
+fi
+
 ls -la ${GITHUB_WORKSPACE}
