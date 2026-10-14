@@ -26,23 +26,27 @@ cd ..
 ###########################################
 # Clone the required repositories
 
+THUNDER_TOOLS_COMMIT_SHA="d5dd83c7c19c49c7f25c558c126500bd2d64f7a4"
+THUNDER_COMMIT_SHA="2c0fcc5529e7da734be558ca6efa05d934dcce31"
 
-git clone --branch  R4.4.3 https://github.com/rdkcentral/ThunderTools.git
+git clone --branch R4_4-RDK https://github.com/rdkcentral/ThunderTools.git
+cd ThunderTools
+git checkout $THUNDER_TOOLS_COMMIT_SHA
+cd ..
 
-git clone --branch R4.4.1 https://github.com/rdkcentral/Thunder.git
+git clone --branch R4_4-RDK https://github.com/rdkcentral/Thunder.git
+cd Thunder
+git checkout $THUNDER_COMMIT_SHA
+cd ..
 
-git clone --branch main https://github.com/rdkcentral/entservices-apis.git
+git clone --branch develop https://github.com/rdkcentral/entservices-apis.git
 
-git clone --branch 1.0.1 https://github.com/rdkcentral/entservices-testframework.git
+git clone --branch feature/RDKEMW-25013 https://github.com/rdkcentral/entservices-testframework.git
 
 ############################
 # Build Thunder-Tools
 echo "======================================================================================"
 echo "buliding thunderTools"
-cd ThunderTools
-patch -p1 < $GITHUB_WORKSPACE/entservices-testframework/patches/00010-R4.4-Add-support-for-project-dir.patch
-cd -
-
 
 cmake -G Ninja -S ThunderTools -B build/ThunderTools \
     -DEXCEPTIONS_ENABLE=ON \
@@ -57,14 +61,6 @@ cmake --build build/ThunderTools --target install
 # Build Thunder
 echo "======================================================================================"
 echo "buliding thunder"
-
-cd Thunder
-patch -p1 < $GITHUB_WORKSPACE/entservices-testframework/patches/Use_Legact_Alt_Based_On_ThunderTools_R4.4.3.patch
-patch -p1 < $GITHUB_WORKSPACE/entservices-testframework/patches/error_code_R4_4.patch
-patch -p1 < $GITHUB_WORKSPACE/entservices-testframework/patches/1004-Add-support-for-project-dir.patch
-patch -p1 < $GITHUB_WORKSPACE/entservices-testframework/patches/RDKEMW-733-Add-ENTOS-IDS.patch
-patch -p1 < $GITHUB_WORKSPACE/entservices-testframework/patches/Jsonrpc_dynamic_error_handling.patch
-cd -
 
 cmake -G Ninja -S Thunder -B build/Thunder \
     -DMESSAGING=ON \
@@ -85,6 +81,7 @@ echo "==========================================================================
 echo "buliding entservices-apis"
 cd entservices-apis
 rm -rf jsonrpc/DTV.json
+patch -p1 < $GITHUB_WORKSPACE/entservices-testframework/patches/RDKEMW-1007.patch
 cd ..
 
 cmake -G Ninja -S entservices-apis  -B build/entservices-apis \
@@ -104,7 +101,6 @@ echo " Empty mocks creation to avoid compilation errors"
 echo "======================================================================================"
 mkdir -p headers
 mkdir -p headers/audiocapturemgr
-mkdir -p headers/rdk/ds
 mkdir -p headers/rdk/iarmbus
 mkdir -p headers/rdk/iarmmgrs-hal
 mkdir -p headers/rdk/halif/
@@ -125,24 +121,6 @@ cd headers
 echo "current working dir: "${PWD}
 touch audiocapturemgr/audiocapturemgr_iarm.h
 touch ccec/drivers/CecIARMBusMgr.h
-touch rdk/ds/audioOutputPort.hpp
-touch rdk/ds/compositeIn.hpp
-touch rdk/ds/dsDisplay.h
-touch rdk/ds/dsError.h
-touch rdk/ds/dsMgr.h
-touch rdk/ds/dsTypes.h
-touch rdk/ds/dsUtl.h
-touch rdk/ds/exception.hpp
-touch rdk/ds/hdmiIn.hpp
-touch rdk/ds/host.hpp
-touch rdk/ds/list.hpp
-touch rdk/ds/manager.hpp
-touch rdk/ds/sleepMode.hpp
-touch rdk/ds/videoDevice.hpp
-touch rdk/ds/videoOutputPort.hpp
-touch rdk/ds/videoOutputPortConfig.hpp
-touch rdk/ds/videoOutputPortType.hpp
-touch rdk/ds/videoResolution.hpp
 touch rdk/iarmbus/libIARM.h
 touch rdk/iarmbus/libIBus.h
 touch rdk/iarmbus/libIBusDaemon.h
@@ -168,7 +146,6 @@ touch rdk_logger_milestone.h
 touch audioOutputPortType.hpp
 touch audioOutputPortConfig.hpp
 touch tr181api.h
-touch dsRpc.h
 touch Dobby/DobbyProtocol.h
 touch Dobby/DobbyProxy.h
 touch Dobby/Public/Dobby/IDobbyProxy.h
@@ -178,5 +155,15 @@ echo "==========================================================================
 
 cd ../../
 cp -r /usr/include/gstreamer-1.0/gst /usr/include/glib-2.0/* /usr/lib/x86_64-linux-gnu/glib-2.0/include/* /usr/local/include/trower-base64/base64.h .
+
+if [ ! -e "$GITHUB_WORKSPACE/../entservices-infra" ]; then
+    ln -s "$GITHUB_WORKSPACE" "$GITHUB_WORKSPACE/../entservices-infra" || true
+fi
+if [ ! -e "$GITHUB_WORKSPACE/../entservices-testframework" ]; then
+    ln -s "$GITHUB_WORKSPACE/entservices-testframework" "$GITHUB_WORKSPACE/../entservices-testframework" || true
+fi
+if [ ! -e "$GITHUB_WORKSPACE/../Thunder" ]; then
+    ln -s "$GITHUB_WORKSPACE/Thunder" "$GITHUB_WORKSPACE/../Thunder" || true
+fi
 
 ls -la ${GITHUB_WORKSPACE}
