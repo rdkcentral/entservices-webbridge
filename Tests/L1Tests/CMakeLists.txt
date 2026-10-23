@@ -101,79 +101,103 @@ macro(add_plugin_test plugin_name test_files)
     add_plugin_test_ex(${plugin_opt} "${test_files}" "../../${plugin_name}" "${NAMESPACE}${plugin_name}")
 endmacro()
 
+if (EXISTS "${CMAKE_SOURCE_DIR}/helpers")
+    set(INFRA_DIR "${CMAKE_SOURCE_DIR}")
+elseif (EXISTS "${CMAKE_SOURCE_DIR}/../entservices-infra/helpers")
+    set(INFRA_DIR "${CMAKE_SOURCE_DIR}/../entservices-infra")
+else()
+    set(INFRA_DIR "${CMAKE_SOURCE_DIR}")
+endif()
+
+if (EXISTS "${CMAKE_SOURCE_DIR}/entservices-testframework")
+    set(TESTFRAMEWORK_DIR "${CMAKE_SOURCE_DIR}/entservices-testframework")
+elseif (EXISTS "${CMAKE_SOURCE_DIR}/../entservices-testframework")
+    set(TESTFRAMEWORK_DIR "${CMAKE_SOURCE_DIR}/../entservices-testframework")
+else()
+    set(TESTFRAMEWORK_DIR "${CMAKE_SOURCE_DIR}/../entservices-testframework")
+endif()
+
+if (EXISTS "${CMAKE_SOURCE_DIR}/Thunder")
+    set(THUNDER_DIR "${CMAKE_SOURCE_DIR}/Thunder")
+elseif (EXISTS "${CMAKE_SOURCE_DIR}/../Thunder")
+    set(THUNDER_DIR "${CMAKE_SOURCE_DIR}/../Thunder")
+else()
+    set(THUNDER_DIR "${CMAKE_SOURCE_DIR}/../Thunder")
+endif()
+
 # PLUGIN_USBDEVICE
-set (USBDEVICE_INC ${CMAKE_SOURCE_DIR}/../entservices-infra/USBDevice ${CMAKE_SOURCE_DIR}/../entservices-infra/helpers)
+set (USBDEVICE_INC ${INFRA_DIR}/USBDevice ${INFRA_DIR}/helpers)
 set (USBDEVICE_LIBS ${NAMESPACE}USBDevice ${NAMESPACE}USBDeviceImplementation)
 add_plugin_test_ex(PLUGIN_USBDEVICE tests/test_USBDevice.cpp "${USBDEVICE_INC}" "${USBDEVICE_LIBS}")
 
 # PLUGIN_USB_MASS_STORAGE
-set (USB_MASS_STORAGE_INC ${CMAKE_SOURCE_DIR}/../entservices-infra/USBMassStorage ${CMAKE_SOURCE_DIR}/../entservices-infra/helpers)
+set (USB_MASS_STORAGE_INC ${INFRA_DIR}/USBMassStorage ${INFRA_DIR}/helpers)
 set (USB_MASS_STORAGE_LIBS ${NAMESPACE}USBMassStorage ${NAMESPACE}USBMassStorageImplementation)
 add_plugin_test_ex(PLUGIN_USB_MASS_STORAGE tests/test_USBMassStorage.cpp "${USB_MASS_STORAGE_INC}" "${USB_MASS_STORAGE_LIBS}")
 
 # PLUGIN_TELEMETRY
-set (TELEMETRY_INC ${CMAKE_SOURCE_DIR}/../entservices-infra/Telemetry ${CMAKE_SOURCE_DIR}/../entservices-infra/helpers)
+set (TELEMETRY_INC ${INFRA_DIR}/Telemetry ${INFRA_DIR}/helpers)
 set (TELEMETRY_LIBS ${NAMESPACE}Telemetry ${NAMESPACE}TelemetryImplementation)
 add_plugin_test_ex(PLUGIN_TELEMETRY tests/test_Telemetry.cpp "${TELEMETRY_INC}" "${TELEMETRY_LIBS}")
 
 # PLUGIN_APPMANAGER
-set (APPMANAGER_INC ${CMAKE_SOURCE_DIR}/../entservices-infra/AppManager ${CMAKE_SOURCE_DIR}/../entservices-infra/helpers)
+set (APPMANAGER_INC ${INFRA_DIR}/AppManager ${INFRA_DIR}/helpers)
 set (APPMANAGER_LIBS ${NAMESPACE}AppManager ${NAMESPACE}AppManagerImplementation)
 add_plugin_test_ex(PLUGIN_APPMANAGER tests/test_AppManager.cpp "${APPMANAGER_INC}" "${APPMANAGER_LIBS}")
 
 # PLUGIN_OCICONTAINER
-set (OCICONTAINER_INC ${CMAKE_SOURCE_DIR}/../entservices-infra/OCIContainer ${CMAKE_SOURCE_DIR}/../entservices-infra/OCIContainer/stubs)
+set (OCICONTAINER_INC ${INFRA_DIR}/OCIContainer ${INFRA_DIR}/OCIContainer/stubs)
 set (OCICONTAINER_LIBS ${NAMESPACE}OCIContainer)
 add_plugin_test_ex(PLUGIN_OCICONTAINER tests/test_OCIContainer.cpp "${OCICONTAINER_INC}" "${OCICONTAINER_LIBS}")
 
 # PLUGIN_RUNTIME_MANAGER
-set (RUNTIMEMANAGER_INC ${CMAKE_SOURCE_DIR}/../entservices-infra/RuntimeManager ${CMAKE_SOURCE_DIR}/../entservices-infra/helpers)
+set (RUNTIMEMANAGER_INC ${INFRA_DIR}/RuntimeManager ${INFRA_DIR}/helpers)
 set (RUNTIMEMANAGER_LIBS ${NAMESPACE}RuntimeManager ${NAMESPACE}RuntimeManagerImplementation)
 add_plugin_test_ex(PLUGIN_RUNTIME_MANAGER tests/test_RunTimeManager.cpp "${RUNTIMEMANAGER_INC}" "${RUNTIMEMANAGER_LIBS}")
 
 
 # PLUGIN_USERSETTINGS
-set (USERSETTINGS_INC ${CMAKE_SOURCE_DIR}/../entservices-infra/UserSettings ${CMAKE_SOURCE_DIR}/../entservices-infra/helpers)
+set (USERSETTINGS_INC ${INFRA_DIR}/UserSettings ${INFRA_DIR}/helpers)
 set (USERSETTINGS_LIBS ${NAMESPACE}UserSettings ${NAMESPACE}UserSettingsImplementation)
 add_plugin_test_ex(PLUGIN_USERSETTINGS tests/test_UserSettings.cpp "${USERSETTINGS_INC}" "${USERSETTINGS_LIBS}")
 
 # PLUGIN_RESOURCEMANAGER
-set (RESOURCEMANAGER_INC ${CMAKE_SOURCE_DIR}/../entservices-infra/ResourceManager ${CMAKE_SOURCE_DIR}/../entservices-infra/helpers)
+set (RESOURCEMANAGER_INC ${INFRA_DIR}/ResourceManager ${INFRA_DIR}/helpers)
 add_plugin_test_ex(PLUGIN_RESOURCEMANAGER tests/test_ResourceManager.cpp "${RESOURCEMANAGER_INC}" "${NAMESPACE}ResourceManager")
 
 #PLUGIN_STORAGE_MANAGER
-set (STORAGE_MANAGER_INC ${CMAKE_SOURCE_DIR}/../entservices-infra/StorageManager ${CMAKE_SOURCE_DIR}/../entservices-infra/helpers)
+set (STORAGE_MANAGER_INC ${INFRA_DIR}/StorageManager ${INFRA_DIR}/helpers)
 set (STORAGE_MANAGER_LIBS ${NAMESPACE}StorageManager ${NAMESPACE}StorageManagerImplementation)
 add_plugin_test_ex(PLUGIN_STORAGE_MANAGER tests/test_StorageManager.cpp "${STORAGE_MANAGER_INC}" "${STORAGE_MANAGER_LIBS}")
 
 # PLUGIN_LIFECYCLE_MANAGER
-set (LIFECYCLEMANAGER_INC ${CMAKE_SOURCE_DIR}/../entservices-infra/LifecycleManager ${CMAKE_SOURCE_DIR}/../entservices-infra/helpers)
+set (LIFECYCLEMANAGER_INC ${INFRA_DIR}/LifecycleManager ${INFRA_DIR}/helpers)
 set (LIFECYCLEMANAGER_LIBS ${NAMESPACE}LifecycleManager)
 add_plugin_test_ex(PLUGIN_LIFECYCLE_MANAGER tests/test_LifecycleManager.cpp "${LIFECYCLEMANAGER_INC}" "${LIFECYCLEMANAGER_LIBS}")
 
 # PLUGIN_MESSAGECONTROL
-set (MESSAGECONTROL_INC ${CMAKE_SOURCE_DIR}/../entservices-infra/MessageControl ${CMAKE_SOURCE_DIR}/../entservices-infra/helpers)
+set (MESSAGECONTROL_INC ${INFRA_DIR}/MessageControl ${INFRA_DIR}/helpers)
 set (MESSAGECONTROL_LIBS ${NAMESPACE}MessageControl)
 add_plugin_test_ex(PLUGIN_MESSAGECONTROL tests/test_MessageControl.cpp "${MESSAGECONTROL_INC}" "${MESSAGECONTROL_LIBS}")
 
 
 # PLUGIN_MIGRATION
-set (MIGRATION_INC ${CMAKE_SOURCE_DIR}/../entservices-infra/Migration ${CMAKE_SOURCE_DIR}/../entservices-infra/helpers)
+set (MIGRATION_INC ${INFRA_DIR}/Migration ${INFRA_DIR}/helpers)
 set (MIGRATION_LIBS ${NAMESPACE}Migration ${NAMESPACE}MigrationImplementation)
 add_plugin_test_ex(PLUGIN_MIGRATION tests/test_Migration.cpp "${MIGRATION_INC}" "${MIGRATION_LIBS}")
 
 # PLUGIN_PREINSTALL_MANAGER
-set (PREINSTALL_MANAGER_INC ${CMAKE_SOURCE_DIR}/../entservices-infra/PreinstallManager ${CMAKE_SOURCE_DIR}/../entservices-infra/helpers)
+set (PREINSTALL_MANAGER_INC ${INFRA_DIR}/PreinstallManager ${INFRA_DIR}/helpers)
 set (PREINSTALL_MANAGER_LIBS ${NAMESPACE}PreinstallManager ${NAMESPACE}PreinstallManagerImplementation)
 add_plugin_test_ex(PLUGIN_PREINSTALL_MANAGER tests/test_PreinstallManager.cpp "${PREINSTALL_MANAGER_INC}" "${PREINSTALL_MANAGER_LIBS}")
 
 # PLUGIN_PACKAGE_MANAGER
-set (PACKAGEMANAGER_INC ${CMAKE_SOURCE_DIR}/../entservices-infra/PackageManager ${CMAKE_SOURCE_DIR}/../entservices-infra/helpers)
+set (PACKAGEMANAGER_INC ${INFRA_DIR}/PackageManager ${INFRA_DIR}/helpers)
 set (PACKAGEMANAGER_LIBS ${NAMESPACE}PackageManagerRDKEMS)
 add_plugin_test_ex(PLUGIN_PACKAGE_MANAGER tests/test_PackageManager.cpp "${PACKAGEMANAGER_INC}" "${PACKAGEMANAGER_LIBS}")
 
 #PLUGIN_DOWNLOAD_MANAGER
-set (DOWNLOADMANAGER_INC ${CMAKE_SOURCE_DIR}/../entservices-infra/DownloadManager ${CMAKE_SOURCE_DIR}/../entservices-infra/helpers)
+set (DOWNLOADMANAGER_INC ${INFRA_DIR}/DownloadManager ${INFRA_DIR}/helpers)
 set (DOWNLOADMANAGER_LIBS ${NAMESPACE}DownloadManager ${NAMESPACE}DownloadManagerImplementation)
 add_plugin_test_ex(PLUGIN_DOWNLOADMANAGER tests/test_DownloadManager.cpp "${DOWNLOADMANAGER_INC}" "${DOWNLOADMANAGER_LIBS}")
 
@@ -193,10 +217,10 @@ target_include_directories(${MODULE_NAME}
         PUBLIC
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
         $<INSTALL_INTERFACE:include>
-        ${CMAKE_SOURCE_DIR}/../entservices-testframework/Tests/mocks
-        ${CMAKE_SOURCE_DIR}/../entservices-testframework/Tests/mocks/devicesettings
-        ${CMAKE_SOURCE_DIR}/../entservices-testframework/Tests/mocks/thunder
-        ${CMAKE_SOURCE_DIR}/../Thunder/Source/plugins
+        ${TESTFRAMEWORK_DIR}/Tests/mocks
+        ${TESTFRAMEWORK_DIR}/Tests/mocks/devicesettings
+        ${TESTFRAMEWORK_DIR}/Tests/mocks/thunder
+        ${THUNDER_DIR}/Source/plugins
         )
 
 target_compile_definitions(${MODULE_NAME} PRIVATE UNIT_TEST)
