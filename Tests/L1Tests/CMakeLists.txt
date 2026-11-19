@@ -218,7 +218,6 @@ target_include_directories(${MODULE_NAME}
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
         $<INSTALL_INTERFACE:include>
         ${TESTFRAMEWORK_DIR}/Tests/mocks
-        ${TESTFRAMEWORK_DIR}/Tests/mocks/devicesettings
         ${TESTFRAMEWORK_DIR}/Tests/mocks/thunder
         ${THUNDER_DIR}/Source/plugins
         )
